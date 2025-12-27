@@ -3,14 +3,14 @@ import { useState } from "react";
 export default function TechStack({ darkMode }) {
   const [open, setOpen] = useState(false);
 
-  const mainStack = ["React", "Tailwind", "Laravel", "JavaScript", "Vercel", "Render"];
+  const mainStack = ["React", "Tailwind", "Laravel", "JavaScript", "Vercel", "Render", "Expo", "SQLite"];
 
   const categorizedStack = {
     Frontend: ["HTML", "CSS", "JavaScript", "React", "Tailwind"],
     Backend: ["Laravel", "Node.js", "C++"],
-    Database: ["MySQL", "MongoDB"],
+    Database: ["MySQL", "MongoDB", "SQLite"],
     Tools: ["GitHub", "VS Code", "Figma", "Lucidchart", "ClickUp", "WordPress"],
-    Deployment: ["Vercel", "Render"],
+    Deployment: ["Vercel", "Render", "Expo"],
   };
 
   return (
