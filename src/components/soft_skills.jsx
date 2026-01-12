@@ -3,8 +3,8 @@ export default function SoftSkills({ darkMode }) {
     "Team collaboration",
     "Active listening",
     "Time-management",
-    "Task collaboration",
-    "Deadline management",
+    "Willingness to learn",
+    "Flexibility",
   ];
 
   return (

@@ -65,12 +65,12 @@ export default function AboutMe({ darkMode }) {
               `}
             >
               <IoLocationOutline/>
-              <span className="leading-none">Camarines Sur, Philippines</span>
+              <span className="leading-none">Buhi, Camarines Sur</span>
             </div>
 
 
             <p
-              className={`mt-6 max-w-xl ${
+              className={`mt-6 max-w-xl text-justify ${
                 darkMode ? "text-gray-300" : "text-gray-600"
               }`}
             >

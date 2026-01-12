@@ -9,10 +9,10 @@ export default function TechStack({ darkMode }) {
   ];
 
   const categorizedStack = {
-    Programming_Languages: [ "Python", "PHP"],
-    Frontend: ["CSS", "React", "Tailwind", "React Native", "JavaScript"],
+    Programming_Languages: [ "Python", "PHP", "C++"],
+    Frontend: ["HTML", "CSS", "React", "Tailwind", "React Native", "JavaScript"],
     Backend: ["Laravel", "Node.js"],
-    Database: ["SQLite"],
+    Database: ["SQLite", "MySQL",],
     Tools: ["GitHub", "VS Code", "Figma", "Lucidchart", "ClickUp", "WordPress"],
     Deployment: ["Vercel", "Render", "Expo"],
   };
@@ -77,7 +77,7 @@ export default function TechStack({ darkMode }) {
                 <div key={category}>
                   <h4
                     className={`text-m font-semibold mb-2 ${
-                      darkMode ? "text-blue-600" : "text-indigo-600"
+                      darkMode ? "text-purple-500" :  "text-blue-600"
                     }`}
                   >
                     {category}
