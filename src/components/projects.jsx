@@ -4,7 +4,7 @@ const projectData = [
   {
     title: "TapTrack – Web & Mobile RFID Attendance and Violation Monitoring System",
     description:
-      "TapTrack is a web and mobile system using RFID/NFC to track student attendance and violations. It includes a web portal for managing records, events, and violations, and a mobile app for students, parents, employees, and security staff. The system was tested in a real school environment, proving its effectiveness.",
+      "TapTrack is a centralized web and mobile-based monitoring system designed to automatecampus entry/exit monitoring, event attendance, and student violation logging using RFID and NFC technology. It replaces manual paper-based logging with real-time digital records to improve accuracy, security, transparency, and administrative efficiency in school environments.",
     techStack: ["Laravel", "PostgreSQL", "Tailwind CSS", "React Native", "JavaScript", "Expo"],
     github: null,
     appLink: null,
