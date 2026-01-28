@@ -4,7 +4,7 @@ export default function TechStack({ darkMode }) {
   const [open, setOpen] = useState(false);
 
   const mainStack = 
-  ["React", "Tailwind", "Laravel", "JavaScript", "Vercel", "Render", "Expo", "SQLite",
+  ["React", "React Native", "Tailwind", "Laravel", "JavaScript", "Vercel", "Render", "Expo", "SQLite",
     "CSS", "PHP", "C++", "Node.js", "MySQL", "MongoDB", "GitHub", "VS Code", "Figma"
   ];
 
