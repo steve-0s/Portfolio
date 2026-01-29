@@ -5,6 +5,7 @@ export default function Certifications({ darkMode }) {
 
   const certs = [
     { name: "Smartbooks And Power BI", file: "/certificates/FIT-SM202402192579.pdf" },
+    { name: "Google AI Essentials", file: "/certificates/Coursera_F9S1QXNGHH7F.pdf" },
   ];
 
   return (
