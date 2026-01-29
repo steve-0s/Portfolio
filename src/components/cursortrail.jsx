@@ -5,6 +5,7 @@ export default function CursorTrail({ darkMode }) {
   const trailRef = useRef([]);
   const positions = useRef([]);
   const containerRef = useRef(null);
+  const animationFrameRef = useRef(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -42,7 +43,7 @@ export default function CursorTrail({ darkMode }) {
       });
     };
 
-    updateColors(); // initial call
+    updateColors();
 
     let mouse = { x: -100, y: -100 };
     let visible = false;
@@ -73,7 +74,7 @@ export default function CursorTrail({ darkMode }) {
         div.style.opacity = visible ? (trailLength - i) / trailLength : 0;
       });
 
-      requestAnimationFrame(animate);
+      animationFrameRef.current = requestAnimationFrame(animate);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -81,6 +82,11 @@ export default function CursorTrail({ darkMode }) {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      clearTimeout(hideTimeout);
+      // Cancel the animation frame when effect cleans up
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [darkMode]);
 
