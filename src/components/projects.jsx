@@ -18,12 +18,12 @@ const projectData = [
     appLink: null,
   },
   {
-    title: "ADNU Helper – Service Hiring Web Application",
+    title: "Weather App",
     description:
-      "ADNU Helper is a web application that allows users to hire services for daily tasks such as grocery shopping, buying lunch, or cleaning rooms and homes. The platform streamlines task requests, making it easy and convenient to connect users with helpers.",
-    techStack: ["HTML", "CSS", "Python"],
-    github: "https://github.com/steve-0s/WebDev",
-    appLink: null,
+      "A lightweight weather app that provides real-time forecasts, current conditions, and essential weather details in a clean interface.",
+    techStack: ["React", "Tailwind CSS", "OpenWeatherMap API"],
+    github: "https://github.com/steve-0s/weather",
+    appLink: "https://weather-j92p.onrender.com",
   },
   {
     title: "Forge – Personal Workout App",
@@ -40,9 +40,8 @@ export default function Projects({ darkMode }) {
 
   return (
     <div
-      className={`rounded-3xl p-12 shadow-xl  ${
-        darkMode ? "bg-neutral-800/80 border border-gray-900" : "bg-white border border-gray-100"
-      }`}
+      className={`rounded-3xl p-12 shadow-xl  ${darkMode ? "bg-neutral-800/80 border border-gray-900" : "bg-white border border-gray-100"
+        }`}
     >
       <h2 className={`text-3xl font-bold mb-8 ${darkMode ? "text-white" : "text-gray-900"}`}>
         Projects
@@ -52,9 +51,8 @@ export default function Projects({ darkMode }) {
         {projectData.map((proj) => (
           <div
             key={proj.title}
-            className={`rounded-2xl p-6 shadow flex flex-col h-full ${
-              darkMode ? "bg-neutral-900 text-gray-300" : "bg-gray-50 text-gray-600"
-            }`}
+            className={`rounded-2xl p-6 shadow flex flex-col h-full ${darkMode ? "bg-neutral-900 text-gray-300" : "bg-gray-50 text-gray-600"
+              }`}
           >
             <h3 className="font-semibold mb-3">{proj.title}</h3>
 
@@ -62,9 +60,8 @@ export default function Projects({ darkMode }) {
               {proj.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className={`px-3 py-1.5 rounded-full text-sm ${
-                    darkMode ? "bg-neutral-800 text-gray-300" : "bg-gray-100 text-gray-700"
-                  }`}
+                  className={`px-3 py-1.5 rounded-full text-sm ${darkMode ? "bg-neutral-800 text-gray-300" : "bg-gray-100 text-gray-700"
+                    }`}
                 >
                   {tech}
                 </span>
@@ -74,9 +71,8 @@ export default function Projects({ darkMode }) {
             <div className="mt-auto flex justify-end">
               <button
                 onClick={() => setSelectedProject(proj)}
-                className={`text-sm font-medium hover:underline ${
-                  darkMode ? "text-violet-400" : "text-blue-600"
-                }`}
+                className={`text-sm font-medium hover:underline ${darkMode ? "text-violet-400" : "text-blue-600"
+                  }`}
               >
                 View Details →
               </button>
@@ -89,9 +85,8 @@ export default function Projects({ darkMode }) {
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
           <div
-            className={`w-full max-w-2xl rounded-2xl p-6 shadow ${
-              darkMode ? "bg-neutral-900 text-white" : "bg-white text-gray-900"
-            }`}
+            className={`w-full max-w-2xl rounded-2xl p-6 shadow ${darkMode ? "bg-neutral-900 text-white" : "bg-white text-gray-900"
+              }`}
           >
             <div className="flex justify-between items-center mb-4">
               <h2 className="font-bold text-xl">{selectedProject.title}</h2>
@@ -110,9 +105,8 @@ export default function Projects({ darkMode }) {
               {selectedProject.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className={`px-3 py-1.5 rounded-full text-sm ${
-                    darkMode ? "bg-neutral-800 text-gray-300" : "bg-gray-100 text-gray-700"
-                  }`}
+                  className={`px-3 py-1.5 rounded-full text-sm ${darkMode ? "bg-neutral-800 text-gray-300" : "bg-gray-100 text-gray-700"
+                    }`}
                 >
                   {tech}
                 </span>
