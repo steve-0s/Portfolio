@@ -24,12 +24,12 @@ export default function TechStack({ darkMode }) {
         className={`rounded-3xl p-5 border shadow-lg backdrop-blur-md transition-all group
           ${darkMode
             ? "bg-neutral-900/40 border-neutral-700/50 hover:shadow-blue-900/10"
-            : "bg-white/60 border-white/60 hover:shadow-neutral-200"
+            : "bg-neutral-900/40 border-neutral-700/50 hover:shadow-blue-900/10"
           }
         `}
       >
         <h2 className={`text-lg font-bold font-display mb-3
-          ${darkMode ? "text-white" : "text-neutral-900"}
+          ${darkMode ? "text-neutral-900" : "text-white"}
         `}>
           Tech Stack
         </h2>
@@ -40,8 +40,8 @@ export default function TechStack({ darkMode }) {
               key={s}
               className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all hover:scale-105 hover:-translate-y-0.5 cursor-default
                 ${darkMode
-                  ? "bg-neutral-800/60 text-neutral-300 border border-neutral-700/50 hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10"
-                  : "bg-white/80 text-neutral-700 border border-neutral-200 hover:border-blue-500/50 hover:shadow-md"
+                  ? "bg-neutral-800/60 text-neutral-300 border border-neutral-700/50 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10"
+                  : "bg-white/80 text-neutral-700 border border-neutral-200 hover:border-blue-400 hover:shadow-md"
                 }
               `}
             >
@@ -54,7 +54,7 @@ export default function TechStack({ darkMode }) {
           <button
             onClick={() => setOpen(true)}
             className={`inline-flex items-center gap-2 text-xs font-semibold transition-all hover:gap-3
-              ${darkMode ? "text-violet-400 hover:text-violet-300" : "text-blue-600 hover:text-blue-500"}
+              ${darkMode ? "text-blue-400 hover:text-blue-300" : "text-blue-600 hover:text-blue-500"}
             `}
           >
             View All <IoArrowForward />
@@ -71,7 +71,7 @@ export default function TechStack({ darkMode }) {
             `}
           >
             <div className={`flex justify-between items-center p-6 border-b ${darkMode ? "border-neutral-800" : "border-neutral-200"}`}>
-              <h3 className={`font-bold text-xl ${darkMode ? "text-white" : "text-neutral-900"}`}>Full Tech Stack</h3>
+              <h3 className={`font-bold text-xl ${darkMode ? "text-neutral-900" : "text-white"}`}>Full Tech Stack</h3>
               <button
                 onClick={() => setOpen(false)}
                 className={`p-2 rounded-full transition-colors ${darkMode ? "hover:bg-neutral-800 text-white" : "hover:bg-neutral-100 text-black"}`}

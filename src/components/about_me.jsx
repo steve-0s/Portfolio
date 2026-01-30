@@ -6,116 +6,108 @@ export default function AboutMe({ darkMode }) {
   const [openCV, setOpenCV] = useState(false);
 
   return (
-    <section
-      className={`
-        relative w-full  -mt-24
-        ${darkMode ? "bg-neutral-900" : "bg-white"}
-      `}
-    >
+    <section className="relative w-full">
+      <div className={`relative p-8 md:p-12 rounded-3xl overflow-hidden border backdrop-blur-sm transition-colors duration-300
+        ${darkMode ? "bg-neutral-900/40 border-neutral-700/50" : "bg-white/40 border-white/60"}
+      `}>
 
-      {/* Content */}
-      <div className="relative max-w-6xl mx-auto px-6 pt-40 rounded-2xl">
-        <div
-          className={` flex flex-col md:flex-row items-center gap-12 rounded-3xl shadow-xl p-10
-            ${darkMode ? "bg-neutral-800/80 border border-gray-900" : "bg-white border border-gray-100"}
-          `}
-        >
-          {/* Profile Image */}
-          <div
-            className={`
-              w-48 h-48 rounded-full p-1
-              ${darkMode
-                ? "bg-gradient-to-br from-purple-500 to-fuchsia-600"
-                : "bg-gradient-to-br from-blue-500 to-blue-600"}
-            `}
-          >
-            <div
-              className={`w-full h-full rounded-full ${
-                darkMode ? "bg-neutral-900" : "bg-white"
-              }`}
-            >
+        {/* Glow Effects within the card */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+        <div className="relative z-10 flex flex-col-reverse md:flex-row items-center gap-10 md:gap-16">
+
+          {/* Text Content */}
+          <div className="flex-1 text-center md:text-left space-y-6">
+            <div>
+              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-4
+                 ${darkMode ? "bg-violet-500/10 text-violet-300 border border-violet-500/20" : "bg-blue-50 text-blue-700 border border-blue-100"}
+              `}>
+                <span className="relative flex h-2 w-2">
+                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${darkMode ? "bg-violet-400" : "bg-blue-400"}`}></span>
+                  <span className={`relative inline-flex rounded-full h-2 w-2 ${darkMode ? "bg-violet-500" : "bg-blue-500"}`}></span>
+                </span>
+                Available for work
+              </div>
+
+              <h1 className={`text-4xl md:text-6xl font-bold font-display tracking-tight leading-tight mb-2
+                ${darkMode ? "bg-linear-to-r from-purple-500 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent" : "text-neutral-900"}
+              `}>
+                Hi, I'm <br />
+                <span className="bg-linear-to-r from-purple-500 via-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
+                  Stevens Anthony
+                </span>
+              </h1>
+
+              <p className={`text-xl md:text-2xl font-light ${darkMode ? "text-neutral-400" : "text-neutral-600"}`}>
+                Full Stack Developer
+              </p>
+            </div>
+
+            <p className={`max-w-xl text-lg leading-relaxed ${darkMode ? "text-neutral-300" : "text-neutral-600"}`}>
+              I am an Information Technology student passionate about creating web and mobile applications. I enjoy turning ideas
+              into functional projects while improving my skills in programming, problem-solving, and teamwork. Currently, I am
+              exploring modern web and mobile frameworks like React, Tailwind, and Expo, eager to gain real-world experience and
+              grow as a full-stack developer.
+            </p>
+
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+              <button
+                onClick={() => setOpenCV(true)}
+                className="px-6 py-3 rounded-full bg-linear-to-r from-purple-600 to-blue-600 text-white font-medium shadow-lg hover:shadow-purple-500/30 transition-all hover:-translate-y-0.5"
+              >
+                View CV
+              </button>
+
+              <div className={`flex items-center gap-2 px-5 py-3 rounded-full border transition-colors
+                ${darkMode ? "border-neutral-700 text-neutral-300 hover:bg-neutral-800" : "border-neutral-200 text-neutral-700 hover:bg-white"}
+              `}>
+                <IoLocationOutline size={18} />
+                <span>Buhi, Camarines Sur</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Profile Image with Ring */}
+          <div className="relative shrink-0">
+            <div className={`absolute inset-0 rounded-full blur-2xl opacity-50 bg-linear-to-tr from-purple-500 to-blue-500`} />
+            <div className={`relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2
+               ${darkMode ? "border-white/10 bg-neutral-900/50" : "border-white/50 bg-white/50"} backdrop-blur-md`}>
               <img
                 src={profileImg}
-                alt="Profile"
+                alt="Stevens Anthony Fabriga"
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
           </div>
 
-          <div className="flex-1 text-center md:text-left">
-            <h1
-              className={`text-3xl md:text-4xl font-bold ${
-                darkMode ? "text-white" : "text-gray-900"
-              }`}
-            >
-              Stevens Anthony M. Fabriga
-            </h1>
-
-            <p
-              className={`mt-3 text-xl font-bold ${
-                darkMode ? "text-purple-400" : "text-blue-600"
-              }`}
-            >
-              Full Stack Developer
-            </p>
-
-            <div
-              className={`mt-3 inline-flex gap-1.5 py-1 rounded-full text-sm leading-none
-                ${darkMode ? "text-gray-300" : "text-gray-600" }
-              `}
-            >
-              <IoLocationOutline/>
-              <span className="leading-none">Buhi, Camarines Sur</span>
-            </div>
-
-
-            <p
-              className={`mt-6 max-w-xl text-justify ${
-                darkMode ? "text-gray-300" : "text-gray-600"
-              }`}
-            >
-              I am an Information Technology student passionate about creating web
-              and mobile applications. I enjoy turning ideas into functional
-              projects while improving my skills in programming, problem-solving,
-              and teamwork. Currently, I am exploring modern web and mobile
-              frameworks like React, Tailwind, and Expo, eager to gain real-world
-              experience and grow as a full-stack developer.
-            </p>
-
-            {/* CV Button */}
-            <div className="mt-6">
-              <button
-                onClick={() => setOpenCV(true)}
-                className={`px-4 py-2 rounded-full text-sm hover:scale-105 font-bold
-                  ${darkMode
-                    ? "bg-purple-600 text-white hover:bg-purple-700" 
-                    : "bg-blue-600 text-white hover:bg-blue-700"}
-                `}
-              >
-                Curriculum Vitae [CV]
-              </button>
-            </div>
-          </div>
         </div>
       </div>
 
       {/* CV MODAL */}
       {openCV && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur">
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
           <div
-            className={`w-[90vw] max-w-4xl h-[85vh] rounded-2xl p-4 pb-12
-              ${darkMode ? "bg-neutral-900 text-white" : "bg-white"}`}
+            className={`w-full max-w-4xl h-[85vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl
+              ${darkMode ? "bg-neutral-900" : "bg-white"}`}
           >
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="font-semibold">Curriculum Vitae</h3>
-              <button onClick={() => setOpenCV(false)}>✕</button>
+            <div className={`flex justify-between items-center p-4 border-b ${darkMode ? "border-neutral-800" : "border-neutral-200"}`}>
+              <h3 className={`font-semibold ${darkMode ? "text-white" : "text-neutral-900"}`}>Curriculum Vitae</h3>
+              <button
+                onClick={() => setOpenCV(false)}
+                className={`p-2 rounded-full transition-colors ${darkMode ? "hover:bg-neutral-800 text-white" : "hover:bg-neutral-100 text-black"}`}
+              >
+                ✕
+              </button>
             </div>
 
-            <iframe
-              src="[Curriculum_Vitae]-Stevens_Anthony_Fabriga.pdf"
-              className="w-full h-full rounded-xl border"
-              title="CV Preview"
-            />
+            <div className="flex-1 bg-neutral-100 dark:bg-neutral-950 p-2 overflow-hidden">
+              <iframe
+                src="[Curriculum_Vitae]-Stevens_Anthony_Fabriga.pdf"
+                className="w-full h-full rounded-xl"
+                title="CV Preview"
+              />
+            </div>
           </div>
         </div>
       )}
