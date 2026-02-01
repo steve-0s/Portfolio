@@ -69,7 +69,7 @@ export default function Projects({ darkMode }) {
           <div
             key={idx}
             onClick={() => setSelectedProject(proj)}
-            className={`group relative rounded-3xl p-8 overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer h-[420px] flex flex-col
+            className={`group relative rounded-3xl p-8 overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer h-75 flex flex-col
               ${darkMode
                 ? "bg-neutral-900/40 border-neutral-800 hover:border-violet-500/50 hover:shadow-black/50"
                 : "bg-white/60 border-white/60 hover:border-blue-500/50 hover:shadow-neutral-200/50"
