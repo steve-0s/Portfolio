@@ -21,20 +21,13 @@ export default function SoftSkills({ darkMode }) {
                 Soft Skills
             </h2>
 
-            <div className="grid grid-cols-1 gap-2">
+            <div className="space-y-2">
                 {skills.map((s) => (
                     <div
                         key={s.name}
-                        className={`flex items-center px-3 py-2 rounded-lg transition-all hover:scale-[1.01] hover:-translate-y-0.5 cursor-default
-              ${darkMode
-                                ? "bg-neutral-800/60 border border-neutral-700/50 hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10"
-                                : "bg-white/80 border border-neutral-200 hover:border-blue-500/50 hover:shadow-md"
-                            }
-            `}
+                        className={`text-sm ${darkMode ? "text-neutral-300" : "text-neutral-700"}`}
                     >
-                        <span className={`text-xs font-medium ${darkMode ? "text-neutral-200" : "text-neutral-700"}`}>
-                            {s.name}
-                        </span>
+                        {s.name}
                     </div>
                 ))}
             </div>

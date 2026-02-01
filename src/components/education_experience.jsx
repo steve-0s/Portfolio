@@ -65,10 +65,10 @@ export default function Education({ darkMode }) {
 
             {/* Content Card */}
             <div className="flex-1">
-              <div className={`p-3 rounded-lg border backdrop-blur-sm transition-all hover:scale-[1.01] hover:-translate-y-0.5
+              <div className={`p-3 rounded-lg border backdrop-blur-sm transition-colors
                 ${darkMode
-                  ? "bg-neutral-800/60 border-neutral-700/50 hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10"
-                  : "bg-white/80 border-neutral-200 hover:border-blue-500/50 hover:shadow-lg"}
+                  ? "bg-neutral-800/60 border-neutral-700/50"
+                  : "bg-white/80 border-neutral-200"}
               `}>
 
                 <div className={`inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full mb-1.5

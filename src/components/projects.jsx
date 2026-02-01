@@ -7,6 +7,7 @@ const projectData = [
     subtitle: "RFID Attendance System",
     description:
       "TapTrack is a centralized web and mobile-based monitoring system designed to automate campus entry/exit monitoring, event attendance, and student violation logging using RFID and NFC technology.",
+    role: "Frontend Developer",
     techStack: ["Laravel", "PostgreSQL", "React Native", "Expo"],
     github: null,
     appLink: null,
@@ -17,6 +18,7 @@ const projectData = [
     subtitle: "Gym Management System",
     description:
       "A web-based gym management system designed to manage memberships, track attendance, and organize schedules efficiently.",
+    role: "Frontend Developer",
     techStack: ["React", "Node.js", "Express", "MongoDB"],
     github: null,
     appLink: null,
@@ -27,6 +29,7 @@ const projectData = [
     subtitle: "Real-time Forecasts",
     description:
       "A lightweight weather app that provides real-time forecasts, current conditions, and essential weather details in a clean interface.",
+    role: null,
     techStack: ["React", "Tailwind CSS", "OpenWeatherMap"],
     github: "https://github.com/steve-0s/weather",
     appLink: "https://weather-j92p.onrender.com",
@@ -37,6 +40,7 @@ const projectData = [
     subtitle: "Workout Manager",
     description:
       "Mobile application that allows users to create custom workout splits and plans with set counters and rest timers.",
+    role: null,
     techStack: ["React Native", "Expo"],
     github: "https://github.com/steve-0s/Workout-Session-Manager-Mobile-App-",
     appLink: null,
@@ -45,6 +49,8 @@ const projectData = [
 ];
 
 export default function Projects({ darkMode }) {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <div className="space-y-12">
       <div className="flex flex-col md:flex-row justify-between items-end gap-4">
@@ -62,7 +68,8 @@ export default function Projects({ darkMode }) {
         {projectData.map((proj, idx) => (
           <div
             key={idx}
-            className={`group relative rounded-3xl p-8 overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl
+            onClick={() => setSelectedProject(proj)}
+            className={`group relative rounded-3xl p-8 overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer h-[420px] flex flex-col
               ${darkMode
                 ? "bg-neutral-900/40 border-neutral-800 hover:border-violet-500/50 hover:shadow-black/50"
                 : "bg-white/60 border-white/60 hover:border-blue-500/50 hover:shadow-neutral-200/50"
@@ -101,20 +108,18 @@ export default function Projects({ darkMode }) {
 
                 <div className="flex gap-4">
                   {proj.github && (
-                    <a href={proj.github} target="_blank" rel="noopener noreferrer"
-                      className={`flex items-center gap-2 text-sm font-medium transition-colors
-                            ${darkMode ? "text-white hover:text-violet-400" : "text-neutral-900 hover:text-blue-600"}
-                         `}>
+                    <span className={`flex items-center gap-2 text-sm font-medium
+                          ${darkMode ? "text-white" : "text-neutral-900"}
+                       `}>
                       <BsGithub /> Code
-                    </a>
+                    </span>
                   )}
                   {proj.appLink && (
-                    <a href={proj.appLink} target="_blank" rel="noopener noreferrer"
-                      className={`flex items-center gap-2 text-sm font-medium transition-colors
-                             ${darkMode ? "text-white hover:text-violet-400" : "text-neutral-900 hover:text-blue-600"}
-                          `}>
+                    <span className={`flex items-center gap-2 text-sm font-medium
+                           ${darkMode ? "text-white" : "text-neutral-900"}
+                        `}>
                       <BsLink45Deg size={18} /> Live Demo
-                    </a>
+                    </span>
                   )}
                 </div>
               </div>
@@ -122,6 +127,121 @@ export default function Projects({ darkMode }) {
           </div>
         ))}
       </div>
+
+      {/* PROJECT MODAL */}
+      {selectedProject && (
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className={`w-full max-w-3xl rounded-3xl overflow-hidden shadow-2xl
+              ${darkMode ? "bg-neutral-900" : "bg-white"}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className={`flex justify-between items-center p-6 border-b ${darkMode ? "border-neutral-800" : "border-neutral-200"}`}>
+              <div>
+                <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-2 tracking-wider uppercase
+                   ${darkMode ? "bg-white/5 text-white/70" : "bg-black/5 text-black/70"}
+                `}>
+                  {selectedProject.subtitle}
+                </span>
+                <h3 className={`font-bold text-2xl ${darkMode ? "text-white" : "text-neutral-900"}`}>
+                  {selectedProject.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setSelectedProject(null)}
+                className={`p-2 rounded-full transition-colors ${darkMode ? "hover:bg-neutral-800 text-white" : "hover:bg-neutral-100 text-black"}`}
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className={`p-6 space-y-6 max-h-[70vh] overflow-y-auto ${darkMode ? "bg-neutral-950/50" : "bg-neutral-50/50"}`}>
+              {/* Description */}
+              <div>
+                <h4 className={`text-sm font-bold mb-2 uppercase tracking-wider ${darkMode ? "text-violet-400" : "text-blue-600"}`}>
+                  Description
+                </h4>
+                <p className={`leading-relaxed ${darkMode ? "text-neutral-300" : "text-neutral-700"}`}>
+                  {selectedProject.description}
+                </p>
+              </div>
+
+              {/* Role */}
+              {selectedProject.role && (
+                <div>
+                  <h4 className={`text-sm font-bold mb-2 uppercase tracking-wider ${darkMode ? "text-violet-400" : "text-blue-600"}`}>
+                    Role
+                  </h4>
+                  <p className={`leading-relaxed ${darkMode ? "text-neutral-300" : "text-neutral-700"}`}>
+                    {selectedProject.role}
+                  </p>
+                </div>
+              )}
+
+              {/* Tech Stack */}
+              <div>
+                <h4 className={`text-sm font-bold mb-3 uppercase tracking-wider ${darkMode ? "text-violet-400" : "text-blue-600"}`}>
+                  Tech Stack
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.techStack.map(tech => (
+                    <span
+                      key={tech}
+                      className={`px-4 py-2 rounded-lg text-sm font-medium
+                        ${darkMode ? "bg-neutral-800 text-neutral-300" : "bg-white text-neutral-700 border border-neutral-200"}
+                      `}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Links */}
+              {(selectedProject.github || selectedProject.appLink) && (
+                <div>
+                  <h4 className={`text-sm font-bold mb-3 uppercase tracking-wider ${darkMode ? "text-violet-400" : "text-blue-600"}`}>
+                    Links
+                  </h4>
+                  <div className="flex flex-wrap gap-4">
+                    {selectedProject.github && (
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:-translate-y-0.5
+                          ${darkMode
+                            ? "bg-neutral-800 text-white hover:bg-neutral-700"
+                            : "bg-neutral-100 text-neutral-900 hover:bg-neutral-200"}
+                        `}
+                      >
+                        <BsGithub /> View Code
+                      </a>
+                    )}
+                    {selectedProject.appLink && (
+                      <a
+                        href={selectedProject.appLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all hover:-translate-y-0.5
+                          ${darkMode
+                            ? "bg-violet-600 text-white hover:bg-violet-700"
+                            : "bg-blue-600 text-white hover:bg-blue-700"}
+                        `}
+                      >
+                        <BsLink45Deg size={18} /> Live Demo
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

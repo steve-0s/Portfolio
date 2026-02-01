@@ -60,7 +60,7 @@ export default function AboutMe({ darkMode }) {
               </button>
 
               <div className={`flex items-center gap-2 px-5 py-3 rounded-full border transition-colors
-                ${darkMode ? "border-neutral-700 text-neutral-300 hover:bg-neutral-800" : "border-neutral-200 text-neutral-700 hover:bg-white"}
+                ${darkMode ? "border-neutral-700 text-neutral-300" : "border-neutral-200 text-neutral-700"}
               `}>
                 <IoLocationOutline size={18} />
                 <span>Buhi, Camarines Sur</span>

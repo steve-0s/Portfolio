@@ -4,7 +4,7 @@ export default function SocialLinks({ darkMode }) {
   const socials = [
     { name: "GitHub", icon: FaGithub, href: "https://github.com/steve-0s", color: "from-gray-700 to-gray-900" },
     { name: "LinkedIn", icon: FaLinkedin, href: "https://ph.linkedin.com/in/stevens-anthony-m-fabriga-1578b32b5", color: "from-blue-600 to-blue-700" },
-    { name: "Email", icon: FaEnvelope, href: "mailto:stevensanthonyf@gmail.com", color: "from-red-500 to-pink-600" },
+    // { name: "Email", icon: FaEnvelope, href: "mailto:stevensanthonyf@gmail.com", color: "from-red-500 to-pink-600" },
   ];
 
   return (

@@ -1,8 +1,35 @@
-import { useState } from "react";
-import { IoArrowForward } from "react-icons/io5";
+import { useState, useRef, useEffect } from "react";
+import { IoArrowForward, IoChevronBack, IoChevronForward } from "react-icons/io5";
+import {
+  SiReact, SiTailwindcss, SiLaravel, SiJavascript,
+  SiCss3, SiPhp, SiCplusplus, SiNodedotjs, SiMysql,
+  SiMongodb, SiGithub, SiFigma, SiHtml5, SiPython, SiPostgresql
+} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
+
+// Icon mapping for available technologies
+const techIcons = {
+  "React": SiReact,
+  "React Native": TbBrandReactNative,
+  "Tailwind": SiTailwindcss,
+  "Laravel": SiLaravel,
+  "JavaScript": SiJavascript,
+  "CSS": SiCss3,
+  "PHP": SiPhp,
+  "C++": SiCplusplus,
+  "Node.js": SiNodedotjs,
+  "MySQL": SiMysql,
+  "MongoDB": SiMongodb,
+  "GitHub": SiGithub,
+  "Figma": SiFigma,
+  "HTML": SiHtml5,
+  "Python": SiPython,
+  "PostgreSQL": SiPostgresql,
+};
 
 export default function TechStack({ darkMode }) {
   const [open, setOpen] = useState(false);
+  const scrollContainerRef = useRef(null);
 
   const mainStack =
     ["React", "React Native", "Tailwind", "Laravel", "JavaScript", "Vercel", "Render", "Expo", "SQLite",
@@ -16,6 +43,45 @@ export default function TechStack({ darkMode }) {
     "Database": ["SQLite", "MySQL", "PostgreSQL", "MongoDB"],
     "Tools": ["GitHub", "Bit Bucket", "VS Code", "Figma", "Lucidchart", "ClickUp", "WordPress"],
     "Deployment": ["Vercel", "Render", "Expo"],
+  };
+
+  // Auto-scroll effect with smooth infinite loop
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    let animationFrameId;
+    let scrollSpeed = 0.5; // Pixels per frame
+
+    const animate = () => {
+      if (container) {
+        container.scrollLeft += scrollSpeed;
+
+        // When we reach the end, smoothly reset to beginning
+        if (container.scrollLeft >= container.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
+
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 300;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -34,20 +100,30 @@ export default function TechStack({ darkMode }) {
           Tech Stack
         </h2>
 
-        <div className="flex flex-wrap gap-2">
-          {mainStack.slice(0, 12).map((s) => (
-            <span
-              key={s}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all hover:scale-105 hover:-translate-y-0.5 cursor-default
-                ${darkMode
-                  ? "bg-neutral-800/60 text-neutral-300 border border-neutral-700/50 hover:border-violet-500/50 hover:shadow-lg hover:shadow-violet-500/10"
-                  : "bg-white/80 text-neutral-700 border border-neutral-200 hover:border-blue-500/50 hover:shadow-md"
-                }
-              `}
-            >
-              {s}
-            </span>
-          ))}
+        {/* Carousel Container */}
+        <div
+          ref={scrollContainerRef}
+          className="flex gap-3 overflow-x-auto scrollbar-hide pb-2"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
+          {/* Render items twice for seamless infinite scroll */}
+          {[...mainStack, ...mainStack].map((tech, index) => {
+            const Icon = techIcons[tech];
+            return (
+              <div
+                key={`${tech}-${index}`}
+                className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-colors cursor-default shrink-0
+                  ${darkMode
+                    ? "bg-neutral-800/60 text-neutral-300 border border-neutral-700/50"
+                    : "bg-white/80 text-neutral-700 border border-neutral-200"
+                  }
+                `}
+              >
+                {Icon && <Icon size={20} />}
+                <span className="text-xs font-medium whitespace-nowrap">{tech}</span>
+              </div>
+            );
+          })}
         </div>
 
         <div className="mt-3 flex justify-end">
@@ -92,16 +168,20 @@ export default function TechStack({ darkMode }) {
                   </h4>
 
                   <div className="flex flex-wrap gap-2">
-                    {items.map((t) => (
-                      <span
-                        key={t}
-                        className={`px-3 py-1.5 rounded-lg text-sm font-medium
-                          ${darkMode ? "bg-neutral-800 text-neutral-300" : "bg-white text-neutral-700 border border-neutral-200"}
-                        `}
-                      >
-                        {t}
-                      </span>
-                    ))}
+                    {items.map((t) => {
+                      const Icon = techIcons[t];
+                      return (
+                        <span
+                          key={t}
+                          className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium
+                            ${darkMode ? "bg-neutral-800 text-neutral-300" : "bg-white text-neutral-700 border border-neutral-200"}
+                          `}
+                        >
+                          {Icon && <Icon size={16} />}
+                          {t}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
