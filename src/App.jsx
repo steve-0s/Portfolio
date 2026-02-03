@@ -34,36 +34,36 @@ export default function App() {
       <div className="relative z-10">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <main className="container mx-auto px-4 pb-10 space-y-16 md:space-y-20">
+        <main className="container mx-auto px-6 sm:px-8 md:px-10 lg:px-12 pb-10 space-y-12 sm:space-y-16 md:space-y-20">
 
-          <section id="about" className="pt-14 md:pt-20">
+          <section id="about" className="pt-20 sm:pt-24 md:pt-28">
             <AboutMe darkMode={darkMode} />
           </section>
 
-          <section id="projects" className="scroll-mt-19">
+          <section id="projects" className="scroll-mt-20">
             <Projects darkMode={darkMode} />
           </section>
 
-          <section id="experience" className="scroll-mt-19 grid lg:grid-cols-3 gap-6">
+          <section id="experience" className="scroll-mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
             {/* Column 1 - Education & Experience */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
               <Education darkMode={darkMode} />
             </div>
 
             {/* Column 2 - Tech Stack & Soft Skills */}
-            <div className="space-y-3">
+            <div className="space-y-3 sm:space-y-4">
               <TechStack darkMode={darkMode} />
               <SoftSkills darkMode={darkMode} />
             </div>
 
             {/* Column 3 - Certifications & Beyond Coding */}
-            <div className="space-y-3">
+            <div className="space-y-3 sm:space-y-4 md:col-span-2 lg:col-span-1">
               <Certifications darkMode={darkMode} />
               <BeyondCoding darkMode={darkMode} />
             </div>
           </section>
 
-          <div className="-mt-8 md:-mt-10">
+          <div className="-mt-6 sm:-mt-8 md:-mt-10" id="connect">
             <SocialLinks darkMode={darkMode} />
           </div>
         </main>

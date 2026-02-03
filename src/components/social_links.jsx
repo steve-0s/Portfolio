@@ -8,9 +8,9 @@ export default function SocialLinks({ darkMode }) {
   ];
 
   return (
-    <section id="connect" className="py-6">
+    <section id="connect" className="py-4 sm:py-6">
       <div
-        className={`rounded-3xl p-6 border shadow-lg backdrop-blur-md transition-all
+        className={`rounded-2xl sm:rounded-3xl p-5 sm:p-6 border shadow-lg backdrop-blur-md transition-all
           ${darkMode
             ? "bg-neutral-900/40 border-neutral-700/50"
             : "bg-white/60 border-white/60"
@@ -18,13 +18,13 @@ export default function SocialLinks({ darkMode }) {
         `}
       >
         <h3
-          className={`text-lg font-bold font-display text-center mb-5
+          className={`text-base sm:text-lg font-bold font-display text-center mb-4 sm:mb-5
           ${darkMode ? "text-white" : "text-neutral-900"}`}
         >
           Let's Connect
         </h3>
 
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
           {socials.map((s) => (
             <a
               key={s.name}

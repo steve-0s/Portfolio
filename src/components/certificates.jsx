@@ -52,12 +52,12 @@ export default function Certifications({ darkMode }) {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className={`w-full max-w-4xl h-[85vh] rounded-3xl overflow-hidden flex flex-col shadow-2xl
+        <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-4">
+          <div className={`w-full max-w-5xl sm:max-w-6xl h-[80vh] sm:h-[85vh] rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col shadow-2xl
             ${darkMode ? "bg-neutral-900" : "bg-white"}`}
           >
-            <div className={`flex justify-between items-center p-4 border-b ${darkMode ? "border-neutral-800" : "border-neutral-200"}`}>
-              <h3 className={`font-semibold ${darkMode ? "text-white" : "text-neutral-900"}`}>{open.name}</h3>
+            <div className={`flex justify-between items-center p-3 sm:p-4 border-b ${darkMode ? "border-neutral-800" : "border-neutral-200"}`}>
+              <h3 className={`font-semibold text-sm sm:text-base ${darkMode ? "text-white" : "text-neutral-900"}`}>{open.name}</h3>
               <button
                 onClick={() => setOpen(null)}
                 className={`p-2 rounded-full transition-colors ${darkMode ? "hover:bg-neutral-800 text-white" : "hover:bg-neutral-100 text-black"}`}
@@ -66,10 +66,10 @@ export default function Certifications({ darkMode }) {
               </button>
             </div>
 
-            <div className="flex-1 bg-neutral-100 dark:bg-neutral-950 p-2 overflow-hidden">
+            <div className="flex-1 bg-neutral-100 dark:bg-neutral-950 p-1 sm:p-2 overflow-hidden">
               <iframe
                 src={open.file}
-                className="w-full h-full rounded-xl"
+                className="w-full h-full rounded-lg sm:rounded-xl"
                 title="Certificate Preview"
               />
             </div>
